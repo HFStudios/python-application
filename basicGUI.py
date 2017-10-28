@@ -3,27 +3,6 @@ from tkinter import *
 from main import givenLengths, givenPoints
 
 
-#Setting up GUI and variables for input
-mGUI = Tk()
-
-#Values if given lengths
-getHypotenuse = IntVar()
-getSideX = IntVar()
-getSideY = IntVar()
-
-#Values if given points
-getx1 = IntVar()
-gety1 = IntVar()
-getx2 = IntVar()
-gety2 = IntVar()
-getx3 = IntVar()
-gety3 = IntVar()
-
-
-
-mGUI.geometry("600x600")
-mGUI.title("Triangle Calculator")
-
 #Function called when button pressed
 def enterValuesLength():
     #Get triangle type from givenLengths in main.py
@@ -80,8 +59,28 @@ def pointInput():
 
 
 
+#Setting up GUI and variables for input
+mGUI = Tk()
+
+#Values if given lengths
+getHypotenuse = IntVar()
+getSideX = IntVar()
+getSideY = IntVar()
+
+#Values if given points
+getx1 = IntVar()
+gety1 = IntVar()
+getx2 = IntVar()
+gety2 = IntVar()
+getx3 = IntVar()
+gety3 = IntVar()
+
+
 lengthInput()
 pointInput()
 
-#Run GUI
+
+#Run/setup GUI
+mGUI.geometry("600x600")
+mGUI.title("Triangle Calculator")
 mGUI.mainloop()
