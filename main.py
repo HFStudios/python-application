@@ -7,25 +7,26 @@ right = "Right Triangle"
 notTri = "Not a Triangle"
 isosceles = "Isosceles Triangle"
 
-#other thing 2
+#Runs if user gives side lengths instead of points
 def givenLengths(hypotenuse, sideX, sideY):
 
     x = 1
 
-    if (sideX + sideY > hypotenuse and hypotenuse + sideX > sideY and hypotenuse + sideY > sideX):
+    if (((sideX + sideY) > hypotenuse) and ((hypotenuse + sideX) > sideY) and ((hypotenuse + sideY) > sideX)):
         if ((hypotenuse ** 2) == (sideX ** 2) + (sideY ** 2)):
             return right
         elif (hypotenuse == sideX == sideY):
             return equilateral
-        elif (hypotenuse != sideX and hypotenuse != sideY and sideY != sideX):
+        elif ((hypotenuse != sideX) and (hypotenuse != sideY) and (sideY != sideX)):
             return scalene
-        elif (hypotenuse == sideX or hypotenuse == sideY or sideX == sideY):
+        elif ((hypotenuse == sideX) or (hypotenuse == sideY) or (sideX == sideY)):
             return isosceles
         else:
             return notTri
     else:
          return notTri
 
+#Runs if user gives points instead of side lengths
 def givenPoints(x1, y1, x2, y2, x3, y3):
 
     hypotenuse = 0
@@ -76,9 +77,8 @@ def givenPoints(x1, y1, x2, y2, x3, y3):
     else:
         return notTri
 
+#Runs terminal version of program
 def main():
-
-    #Main part
     wanted = 0
 
     #Find out if user wants to use points or lengths of sides
@@ -93,22 +93,24 @@ def main():
         else:
             print("Choose a real selection: ")
 
-            #Ask details about side lenths
-            if (wanted == 1):
-                hypotenuse = int(input("What is the hypotenuse? "))
-                sideX = int(input("What is side X? "))
-                sideY = int(input("What is side Y? "))
-                print(givenLengths(hypotenuse, sideX, sideY))
+    #Ask details about side lenths
+    if (wanted == 1):
+        hypotenuse = int(input("What is the hypotenuse? "))
+        sideX = int(input("What is side X? "))
+        sideY = int(input("What is side Y? "))
+        print(givenLengths(hypotenuse, sideX, sideY))
 
-                #Details if wants to use points
-            else:
-                x1 = int(input("What is x1? "))
-                y1 = int(input("What is y1? "))
-                x2 = int(input("What is x2? "))
-                y2 = int(input("What is y2? "))
-                x3 = int(input("What is x3? "))
-                y3 = int(input("What is y3? "))
-                print(givenPoints(x1, y1, x2, y2, x3, y3))
+    #Details if wants to use points
+    else:
+        x1 = int(input("What is x1? "))
+        y1 = int(input("What is y1? "))
+        x2 = int(input("What is x2? "))
+        y2 = int(input("What is y2? "))
+        x3 = int(input("What is x3? "))
+        y3 = int(input("What is y3? "))
+        print(givenPoints(x1, y1, x2, y2, x3, y3))
 
+
+#If file is run as standalone, run main() function
 if __name__ == "__main__":
     main()
