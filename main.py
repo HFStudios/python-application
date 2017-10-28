@@ -9,40 +9,25 @@ isosceles = "Isosceles Triangle"
 
 #Runs if user gives side lengths instead of points
 def givenLengths(side1, side2, side3):
-    l1 = side1
-    l2 = side2
-    l3 = side3
-
-    #Changes it so that hypotenuse becomes sides
     #Makes it so that the lengths can be put in any order and still get the right results
-    if(l1 >= l2 and l1 >= l3):
-        side1 = l1
-        side2 = l2
-        side3 = l3
-    elif(l2 >= l1 and l2 >= l3):
-        side1 = l2
-        side2 = l3
-        side3 = l1
-    elif(l3 >= l1 and l3 >= l2):
-        side1 = l3
-        side2 = l2
-        side3 = l1
+    l1 = max(side1, side2, side3)
+    l3 = min(side1, side2, side3)
+    l2 = (side1 + side2 + side3) - l1 - l3
 
-
-    if (((side2 + side3) > side1) and ((side1 + side2) > side3) and ((side1 + side3) > side2)):
-        if ((side1 ** 2) == (side2 ** 2) + (side3 ** 2)):
+    #Finds out what type of triangle it is
+    if (((l2 + l3) > l1) and ((l1 + l2) > l3) and ((l1 + l3) > l2)):
+        if ((l1 ** 2) == (l2 ** 2) + (l3 ** 2)):
             return right
-        elif (side1 == side2 == side3):
+        elif (l1 == l2 == l3):
             return equilateral
-        elif ((side1 != side2) and (side1 != side3) and (side3 != side2)):
+        elif ((l1 != l2) and (l1 != l3) and (l3 != l2)):
             return scalene
-        elif ((side1 == side2) or (side1 == side3) or (side2 == side3)):
+        elif ((l1 == l2) or (l1 == l3) or (l2 == l3)):
             return isosceles
         else:
             return notTri
     else:
          return notTri
-
 
 #Runs if user gives points instead of side lengths
 def givenPoints(x1, y1, x2, y2, x3, y3):
