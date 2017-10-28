@@ -1,11 +1,16 @@
-def C_to_F_convertor(C):
-    F = (C * 9/5) + 32
-    print(F)
-#;lsdflksjadf;lskjfl;dkjsa;ldjfm
-C = float(input("What is the number of degrees Celcius to conver to Fahrenheit?"))
+def C_to_F_converter(C):
+    F = (C * (9 / 5)) + 32
+    return F
 
-if (C < -273.15):
-    C_to_F_convertor(C)
-    print("true")
-else:
-    print("This is not possible!")
+def main():
+    C = float(input("What is the number of degrees Celcius to conver to Fahrenheit?"))
+
+    if (C < -273.15):
+        print(C_to_F_converter(C))
+    else:
+        print("This is not possible!")
+
+
+#If file is run as standalone, run main() function
+if __name__ == "__main__":
+    main()
