@@ -40,7 +40,7 @@ def lengthInput():
     mEntry = Entry(mGUI, textvariable = getSide3).pack()
 
     #Submit button in GUI (side lengths)
-    mButton = Button(mGUI, text = "Submit Values", command = enterValuesLength, fg = "white", bg = "black").pack()
+    mButton = Button(mGUI, text = "Submit Lengths", command = enterValuesLength, fg = "white", bg = "black").pack()
 
 def pointInput():
     #Labels/input fields for GUI (points given)
@@ -64,7 +64,7 @@ def pointInput():
 
 
     #Submit button in GUI (points given)
-    mButton = Button(mGUI, text = "Submit Values", command = enterValuesPoints, fg = "white", bg = "black").pack()
+    mButton = Button(mGUI, text = "Submit Points", command = enterValuesPoints, fg = "white", bg = "black").pack()
 
 
 
