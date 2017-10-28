@@ -8,18 +8,36 @@ notTri = "Not a Triangle"
 isosceles = "Isosceles Triangle"
 
 #Runs if user gives side lengths instead of points
-def givenLengths(hypotenuse, sideX, sideY):
+def givenLengths(side1, side2, side3):
+
+    l1 = side1
+    l2 = side2
+    l3 = side3
+
+    if(l1 >= l2 and l1 >= l3):
+        side1 = l1
+        side2 = l2
+        side3 = l3
+    elif(l2 >= l1 and l2 >= l3):
+        side1 = l2
+        side2 = l3
+        side3 = l1
+    elif(l3 >= l1 and l3 >= l2):
+        side1 = l3
+        side2 = l2
+        side3 = l1
+
 
     x = 1
 
-    if (((sideX + sideY) > hypotenuse) and ((hypotenuse + sideX) > sideY) and ((hypotenuse + sideY) > sideX)):
-        if ((hypotenuse ** 2) == (sideX ** 2) + (sideY ** 2)):
+    if (((side2 + side3) > side1) and ((side1 + side2) > side3) and ((side1 + side3) > side2)):
+        if ((side1 ** 2) == (side2 ** 2) + (side3 ** 2)):
             return right
-        elif (hypotenuse == sideX == sideY):
+        elif (side1 == side2 == side3):
             return equilateral
-        elif ((hypotenuse != sideX) and (hypotenuse != sideY) and (sideY != sideX)):
+        elif ((side1 != side2) and (side1 != side3) and (side3 != side2)):
             return scalene
-        elif ((hypotenuse == sideX) or (hypotenuse == sideY) or (sideX == sideY)):
+        elif ((side1 == side2) or (side1 == side3) or (side2 == side3)):
             return isosceles
         else:
             return notTri
@@ -29,7 +47,7 @@ def givenLengths(hypotenuse, sideX, sideY):
 #Runs if user gives points instead of side lengths
 def givenPoints(x1, y1, x2, y2, x3, y3):
 
-    hypotenuse = 0
+    side1 = 0
 
     dis1 = math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2))
     dis2 = math.sqrt(((x3 - x2) ** 2) + ((y3 - y2) ** 2))
@@ -37,42 +55,42 @@ def givenPoints(x1, y1, x2, y2, x3, y3):
 
     if (dis1 + dis2 > dis3 and dis2 + dis3 > dis1 and dis3 + dis1 > dis2):
         if (dis1 > dis2 and dis1 > dis3):
-            hypotenuse = dis1
+            side1 = dis1
             if (x1 == x2 == x3 or y1 == y2 == y3):
                 return notTri
-            if ((hypotenuse ** 2) == (dis2 ** 2) + (dis3 ** 2)):
+            if ((side1 ** 2) == (dis2 ** 2) + (dis3 ** 2)):
                 return right
-            elif(hypotenuse == dis2 == dis3):
+            elif(side1 == dis2 == dis3):
                 return equilateral
-            elif(hypotenuse == dis2 or hypotenuse == dis3 or dis2 == dis3):
+            elif(side1 == dis2 or side1 == dis3 or dis2 == dis3):
                 return isosceles
-            elif(hypotenuse != dis2 and dis2 != dis3 and hypotenuse != dis3):
+            elif(side1 != dis2 and dis2 != dis3 and side1 != dis3):
                 return scalene
 
         if (dis2 > dis1 and dis2 > dis3):
-            hypotenuse = dis2
+            side1 = dis2
             if (x1 == x2 == x3 or y1 == y2 == y3):
                 return notTri
-            if ((hypotenuse ** 2) == (dis1 ** 2) + (dis3 ** 2)):
+            if ((side1 ** 2) == (dis1 ** 2) + (dis3 ** 2)):
                 return right
-            elif(hypotenuse == dis1 == dis3):
+            elif(side1 == dis1 == dis3):
                 return equilateral
-            elif(hypotenuse == dis1 or hypotenuse == dis3 or dis1 == dis3):
+            elif(side1 == dis1 or side1 == dis3 or dis1 == dis3):
                 return isosceles
-            elif(hypotenuse != dis1 and dis1 != dis3 and hypotenuse != dis3):
+            elif(side1 != dis1 and dis1 != dis3 and side1 != dis3):
                 return scalene
 
         if (dis3 > dis1 and dis3 > dis2):
-            hypotenuse = dis3
+            side1 = dis3
             if (x1 == x2 == x3 or y1 == y2 == y3):
                 return notTri
-            if ((hypotenuse ** 2) == (dis1 ** 2) + (dis2 ** 2)):
+            if ((side1 ** 2) == (dis1 ** 2) + (dis2 ** 2)):
                 return right
-            elif(hypotenuse == dis1 == dis2):
+            elif(side1 == dis1 == dis2):
                 return equilateral
-            elif(hypotenuse == dis1 or hypotenuse == dis2 or dis1 == dis2):
+            elif(side1 == dis1 or side1 == dis2 or dis1 == dis2):
                 return isosceles
-            elif(hypotenuse != dis1 and dis1 != dis2 and hypotenuse != dis2):
+            elif(side1 != dis1 and dis1 != dis2 and side1 != dis2):
                 return scalene
     else:
         return notTri
@@ -95,10 +113,10 @@ def main():
 
     #Ask details about side lenths
     if (wanted == 1):
-        hypotenuse = int(input("What is the hypotenuse? "))
-        sideX = int(input("What is side X? "))
-        sideY = int(input("What is side Y? "))
-        print(givenLengths(hypotenuse, sideX, sideY))
+        side1 = int(input("What is the side1? "))
+        side2 = int(input("What is side X? "))
+        side3 = int(input("What is side Y? "))
+        print(givenLengths(side1, side2, side3))
 
     #Details if wants to use points
     else:

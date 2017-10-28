@@ -2,15 +2,17 @@ import sys
 from tkinter import *
 from main import givenLengths, givenPoints
 
+#hyp = 1, x = 2, y = 3
 
 #Function called when button pressed
 def enterValuesLength():
     #Get triangle type from givenLengths in main.py
-    finalAnswerLength = givenLengths(getHypotenuse.get(), getSideX.get(), getSideY.get())
+    finalAnswerLength = givenLengths(getSide1.get(), getSide2.get(), getSide3.get())
     print(finalAnswerLength)
 
     #Add triangle type as a new label in GUI
     mLabel = Label(mGUI, text = finalAnswerLength).pack()
+
 def enterValuesPoints():
     #Get triangle type from givenLengths in main.py
     finalAnswerPoints = givenPoints(getx1.get(), gety1.get(), getx2.get(), gety2.get(), getx3.get(), gety3.get())
@@ -21,14 +23,14 @@ def enterValuesPoints():
 
 def lengthInput():
     #Labels/input fields for GUI (side lengths)
-    mLabel = Label(mGUI, text = "Hypotenuse").pack()
-    mEntry = Entry(mGUI, textvariable = getHypotenuse).pack()
+    mLabel = Label(mGUI, text = "Side 1").pack()
+    mEntry = Entry(mGUI, textvariable = getSide1).pack()
 
-    mLabel = Label(mGUI, text = "SideX").pack()
-    mEntry = Entry(mGUI, textvariable = getSideX).pack()
+    mLabel = Label(mGUI, text = "Side 2").pack()
+    mEntry = Entry(mGUI, textvariable = getSide2).pack()
 
-    mLabel = Label(mGUI, text = "SideY").pack()
-    mEntry = Entry(mGUI, textvariable = getSideY).pack()
+    mLabel = Label(mGUI, text = "Side 3").pack()
+    mEntry = Entry(mGUI, textvariable = getSide3).pack()
 
     #Submit button in GUI (side lengths)
     mButton = Button(mGUI, text = "Submit Values", command = enterValuesLength, fg = "white", bg = "black").pack()
@@ -63,9 +65,9 @@ def pointInput():
 mGUI = Tk()
 
 #Values if given lengths
-getHypotenuse = IntVar()
-getSideX = IntVar()
-getSideY = IntVar()
+getSide1 = IntVar()
+getSide2 = IntVar()
+getSide3 = IntVar()
 
 #Values if given points
 getx1 = IntVar()
