@@ -3,6 +3,10 @@ from tkinter import *
 from main import givenLengths, givenPoints
 
 
+#Create new label with output value
+def newLabel(strOut):
+    mLabel = Label(mGUI, text = strOut).pack()
+
 #Function called when button pressed
 def enterValuesLength():
     #Get triangle type from givenLengths in main.py
@@ -10,7 +14,7 @@ def enterValuesLength():
     print(finalAnswerLength)
 
     #Add triangle type as a new label in GUI
-    mLabel = Label(mGUI, text = finalAnswerLength).pack()
+    newLabel(finalAnswerLength)
 
 def enterValuesPoints():
     #Get triangle type from givenLengths in main.py
@@ -18,21 +22,21 @@ def enterValuesPoints():
     print(finalAnswerPoints)
 
     #Add lengths and triangle type as new labels in GUI
-    mLabel = Label(mGUI, text = "Side 1: " + str(finalAnswerPoints[0])).pack()
-    mLabel = Label(mGUI, text = "Side 2: " + str(finalAnswerPoints[1])).pack()
-    mLabel = Label(mGUI, text = "Side 3: " + str(finalAnswerPoints[2])).pack()
-    mLabel = Label(mGUI, text = "Type: " + str(finalAnswerPoints[3])).pack()
+    newLabel("Side 1: " + str(finalAnswerPoints[0]) +
+            "\nSide 2: " + str(finalAnswerPoints[1]) +
+            "\nSide 3: " + str(finalAnswerPoints[2]) +
+            "\nType: " + str(finalAnswerPoints[3]))
 
 
 def lengthInput():
     #Labels/input fields for GUI (side lengths)
-    mLabel = Label(mGUI, text = "Side 1").pack()
+    newLabel("Side 1")
     mEntry = Entry(mGUI, textvariable = getSide1).pack()
 
-    mLabel = Label(mGUI, text = "Side 2").pack()
+    newLabel("Side 2")
     mEntry = Entry(mGUI, textvariable = getSide2).pack()
 
-    mLabel = Label(mGUI, text = "Side 3").pack()
+    newLabel("Side 3")
     mEntry = Entry(mGUI, textvariable = getSide3).pack()
 
     #Submit button in GUI (side lengths)
@@ -40,22 +44,22 @@ def lengthInput():
 
 def pointInput():
     #Labels/input fields for GUI (points given)
-    mLabel = Label(mGUI, text = "x1").pack()
+    newLabel("x1")
     mEntry = Entry(mGUI, textvariable = getx1).pack()
 
-    mLabel = Label(mGUI, text = "y1").pack()
+    newLabel("y1")
     mEntry = Entry(mGUI, textvariable = gety1).pack()
 
-    mLabel = Label(mGUI, text = "x2").pack()
+    newLabel("x2")
     mEntry = Entry(mGUI, textvariable = getx2).pack()
 
-    mLabel = Label(mGUI, text = "y2").pack()
+    newLabel("y2")
     mEntry = Entry(mGUI, textvariable = gety2).pack()
 
-    mLabel = Label(mGUI, text = "x3").pack()
+    newLabel("x3")
     mEntry = Entry(mGUI, textvariable = getx3).pack()
 
-    mLabel = Label(mGUI, text = "y3").pack()
+    newLabel("y3")
     mEntry = Entry(mGUI, textvariable = gety3).pack()
 
 
@@ -86,6 +90,6 @@ pointInput()
 
 
 #Run/setup GUI
-mGUI.geometry("600x600")
+mGUI.geometry("300x900")
 mGUI.title("Triangle Calculator")
 mGUI.mainloop()
