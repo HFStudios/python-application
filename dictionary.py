@@ -8,7 +8,7 @@ def dictionary(w):
     if w in data:
         return data[w]
     else:
-        return("That word is not in the dictionary.")
+        return("Not found in dictionary.")
 
 #Runs terminal version of program
 def main():

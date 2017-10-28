@@ -14,7 +14,7 @@ def newLabelpg2(strOut):
 def newLabelpg3(strOut):
     mLabel = Label(page3, text = strOut).pack()
 
-#Function called when button pressed
+#Function called when button pressed if lengths of sides are entered (page1)
 def enterValuesLength():
     #Get triangle type from givenLengths in main.py
     finalAnswerLength = givenLengths(getSide1.get(), getSide2.get(), getSide3.get())
@@ -23,6 +23,7 @@ def enterValuesLength():
     #Add triangle type as a new label in GUI
     newLabelpg1(finalAnswerLength)
 
+#Function called when button pressed if points of triangle are entered (page1)
 def enterValuesPoints():
     #Get triangle type from givenLengths in main.py
     finalAnswerPoints = givenPoints(getx1.get(), gety1.get(), getx2.get(), gety2.get(), getx3.get(), gety3.get())
@@ -34,6 +35,7 @@ def enterValuesPoints():
             "\nSide 3: " + str(finalAnswerPoints[2]) +
             "\nType: " + str(finalAnswerPoints[3]))
 
+#Creates input field/labels/buttons for length input (page1)
 def lengthInput():
     #Labels/input fields for GUI (side lengths)
     newLabelpg1("Side 1")
@@ -48,6 +50,7 @@ def lengthInput():
     #Submit button in GUI (side lengths)
     mButton = Button(page1, text = "Submit Lengths", command = enterValuesLength, fg = "white", bg = "black").pack()
 
+#Creates input field/labels/buttons for point input (page1)
 def pointInput():
     #Labels/input fields for GUI (points given)
     newLabelpg1("x1")
@@ -73,34 +76,41 @@ def pointInput():
     mButton = Button(page1, text = "Submit Points", command = enterValuesPoints, fg = "white", bg = "black").pack()
 
 
-
+#Function called when button pressed if °C entered (page2)
 def enterC():
     finalF = C_to_F_converter(getC.get())
     print(finalF)
     newLabelpg2(str(getC.get()) + "°C = " + str(finalF) + "°F")
 
+#Function called when button pressed if °F entered (page2)
 def enterF():
     finalC = F_to_C_converter(getF.get())
     print(finalC)
     newLabelpg2(str(getF.get()) + "°F = " + str(finalC) + "°C")
 
+#Creates input field/labels/buttons for °C input (page2)
 def cDegreeInput():
     newLabelpg2("Convert °C to °F")
     mEntry = Entry(page2, textvariable = getC).pack()
     mButton = Button(page2, text = "Submit °C Value", command = enterC, fg = "white", bg = "black").pack()
 
+#Creates input field/labels/buttons for °F input (page2)
 def fDegreeInput():
     newLabelpg2("Convert °F to °C")
     mEntry = Entry(page2, textvariable = getF).pack()
     mButton = Button(page2, text = "Submit °F Value", command = enterF, fg = "white", bg = "black").pack()
 
-
+#Function called when button pressed to enter word (page3)
 def enterWord():
-    wordDef = (str(dictionary(getWord.get())).strip('[]'))
-    newLabelpg3(getWord.get() + " = " + wordDef)
+    wordDef = ((str(dictionary(getWord.get())).strip('[]'))).strip("''")
+    if(wordDef == "Not found in dictionary."):
+        newLabelpg3(wordDef)
+    else:
+        newLabelpg3(getWord.get() + " = " + wordDef)
     print(wordDef)
     print(getWord.get())
 
+#Creates input field/labels/buttons for word input (page3)
 def wordInput():
     newLabelpg3("Word: ")
     mEntry = Entry(page3, textvariable = getWord).pack()
