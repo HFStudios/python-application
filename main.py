@@ -9,7 +9,6 @@ isosceles = "Isosceles Triangle"
 
 #Runs if user gives side lengths instead of points
 def givenLengths(side1, side2, side3):
-
     l1 = side1
     l2 = side2
     l3 = side3
@@ -28,7 +27,7 @@ def givenLengths(side1, side2, side3):
         side1 = l3
         side2 = l2
         side3 = l1
-        
+
 
     if (((side2 + side3) > side1) and ((side1 + side2) > side3) and ((side1 + side3) > side2)):
         if ((side1 ** 2) == (side2 ** 2) + (side3 ** 2)):
@@ -44,56 +43,16 @@ def givenLengths(side1, side2, side3):
     else:
          return notTri
 
+
 #Runs if user gives points instead of side lengths
 def givenPoints(x1, y1, x2, y2, x3, y3):
+    #Gets length of sides, plugs into givenLengths() to get triangle type
+    dist1 = math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2))
+    dist2 = math.sqrt(((x3 - x2) ** 2) + ((y3 - y2) ** 2))
+    dist3 = math.sqrt(((x3 - x1) ** 2) + ((y3 - y1) ** 2))
 
-    side1 = 0
+    return(givenLengths(dist1, dist2, dist3))
 
-    dis1 = math.sqrt(((x2 - x1) ** 2) + ((y2 - y1) ** 2))
-    dis2 = math.sqrt(((x3 - x2) ** 2) + ((y3 - y2) ** 2))
-    dis3 = math.sqrt(((x3 - x1) ** 2) + ((y3 - y1) ** 2))
-
-    if (dis1 + dis2 > dis3 and dis2 + dis3 > dis1 and dis3 + dis1 > dis2):
-        if (dis1 > dis2 and dis1 > dis3):
-            side1 = dis1
-            if (x1 == x2 == x3 or y1 == y2 == y3):
-                return notTri
-            if ((side1 ** 2) == (dis2 ** 2) + (dis3 ** 2)):
-                return right
-            elif(side1 == dis2 == dis3):
-                return equilateral
-            elif(side1 == dis2 or side1 == dis3 or dis2 == dis3):
-                return isosceles
-            elif(side1 != dis2 and dis2 != dis3 and side1 != dis3):
-                return scalene
-
-        if (dis2 > dis1 and dis2 > dis3):
-            side1 = dis2
-            if (x1 == x2 == x3 or y1 == y2 == y3):
-                return notTri
-            if ((side1 ** 2) == (dis1 ** 2) + (dis3 ** 2)):
-                return right
-            elif(side1 == dis1 == dis3):
-                return equilateral
-            elif(side1 == dis1 or side1 == dis3 or dis1 == dis3):
-                return isosceles
-            elif(side1 != dis1 and dis1 != dis3 and side1 != dis3):
-                return scalene
-
-        if (dis3 > dis1 and dis3 > dis2):
-            side1 = dis3
-            if (x1 == x2 == x3 or y1 == y2 == y3):
-                return notTri
-            if ((side1 ** 2) == (dis1 ** 2) + (dis2 ** 2)):
-                return right
-            elif(side1 == dis1 == dis2):
-                return equilateral
-            elif(side1 == dis1 or side1 == dis2 or dis1 == dis2):
-                return isosceles
-            elif(side1 != dis1 and dis1 != dis2 and side1 != dis2):
-                return scalene
-    else:
-        return notTri
 
 #Runs terminal version of program
 def main():
@@ -113,19 +72,19 @@ def main():
 
     #Ask details about side lenths
     if (wanted == 1):
-        side1 = int(input("What is the side1? "))
-        side2 = int(input("What is side X? "))
-        side3 = int(input("What is side Y? "))
+        side1 = float(input("What is side 1? "))
+        side2 = float(input("What is side 2? "))
+        side3 = float(input("What is side 3? "))
         print(givenLengths(side1, side2, side3))
 
     #Details if wants to use points
     else:
-        x1 = int(input("What is x1? "))
-        y1 = int(input("What is y1? "))
-        x2 = int(input("What is x2? "))
-        y2 = int(input("What is y2? "))
-        x3 = int(input("What is x3? "))
-        y3 = int(input("What is y3? "))
+        x1 = float(input("What is x1? "))
+        y1 = float(input("What is y1? "))
+        x2 = float(input("What is x2? "))
+        y2 = float(input("What is y2? "))
+        x3 = float(input("What is x3? "))
+        y3 = float(input("What is y3? "))
         print(givenPoints(x1, y1, x2, y2, x3, y3))
 
 
