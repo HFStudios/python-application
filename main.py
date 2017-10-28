@@ -76,36 +76,39 @@ def givenPoints(x1, y1, x2, y2, x3, y3):
     else:
         return notTri
 
+def main():
 
+    #Main part
+    wanted = 0
 
-#Main part
-wanted = 0
+    #Find out if user wants to use points or lengths of sides
+    while True:
+        getInput = input("Find the triangle with lengths (1) or points (2)? ")
+        if(getInput == "lengths" or getInput == "1"):
+            wanted = 1
+            break
+        elif(getInput == "points" or getInput == "2"):
+            wanted = 2
+            break
+        else:
+            print("Choose a real selection: ")
 
-#Find out if user wants to use points or lengths of sides
-while True:
-    getInput = input("Find the triangle with lengths (1) or points (2)? ")
-    if(getInput == "lengths" or getInput == "1"):
-        wanted = 1
-        break
-    elif(getInput == "points" or getInput == "2"):
-        wanted = 2
-        break
-    else:
-        print("Choose a real selection: ")
+            #Ask details about side lenths
+            if (wanted == 1):
+                hypotenuse = int(input("What is the hypotenuse? "))
+                sideX = int(input("What is side X? "))
+                sideY = int(input("What is side Y? "))
+                print(givenLengths(hypotenuse, sideX, sideY))
 
-#Ask details about side lenths
-if (wanted == 1):
-    hypotenuse = int(input("What is the hypotenuse? "))
-    sideX = int(input("What is side X? "))
-    sideY = int(input("What is side Y? "))
-    print(givenLengths(hypotenuse, sideX, sideY))
+                #Details if wants to use points
+            else:
+                x1 = int(input("What is x1? "))
+                y1 = int(input("What is y1? "))
+                x2 = int(input("What is x2? "))
+                y2 = int(input("What is y2? "))
+                x3 = int(input("What is x3? "))
+                y3 = int(input("What is y3? "))
+                print(givenPoints(x1, y1, x2, y2, x3, y3))
 
-#Details if wants to use points
-else:
-    x1 = int(input("What is x1? "))
-    y1 = int(input("What is y1? "))
-    x2 = int(input("What is x2? "))
-    y2 = int(input("What is y2? "))
-    x3 = int(input("What is x3? "))
-    y3 = int(input("What is y3? "))
-    print(givenPoints(x1, y1, x2, y2, x3, y3))
+if __name__ == "__main__":
+    main()

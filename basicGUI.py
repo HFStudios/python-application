@@ -1,11 +1,14 @@
 import sys
 from tkinter import *
+from main import givenLengths
 
 
 #Function called when button pressed
 def enterValues():
     print("VALUES: " + str(getHypotenuse.get()) + " " + str(getSideX.get()) + " " + str(getSideY.get()))
-    givenLengths(getHypotenuse.get(), getSideX.get(), getSideY.get())
+    finalAnswer = givenLengths(getHypotenuse.get(), getSideX.get(), getSideY.get())
+    print(finalAnswer)
+    mLabel = Label(mGUI, text = finalAnswer).pack()
 
 
 
@@ -26,6 +29,7 @@ mEntry = Entry(mGUI, textvariable = getSideX).pack()
 
 mLabel = Label(mGUI, text = "SideY").pack()
 mEntry = Entry(mGUI, textvariable = getSideY).pack()
+
 
 
 #Button in GUI
