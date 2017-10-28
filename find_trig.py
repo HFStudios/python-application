@@ -20,15 +20,23 @@ def tri(n):
 
 
 
+wanted = 0
 
-fun = input("Find the triangle with length or Points? ")
-if (fun == "length"):
+while True:
+    getInput = input("Find the triangle with length or points? ")
+    if(getInput == "length" or getInput == "1"):
+        wanted = 1
+        break
+    elif(getInput == "points" or getInput == "2"):
+        wanted = 2
+        break
+if (wanted == 1):
     hy = int(input("what is hypotenuse? "))
     length2 = int(input("what is length2? "))
     length3 = int(input("what is length3? "))
     tri(1)
 
-elif(fun == "points"):
+else:
     hy = 0
     x1 = int(input("what is x1? "))
     y1 = int(input("what is y1? "))
