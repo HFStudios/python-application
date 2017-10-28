@@ -56,8 +56,6 @@ def givenPoints(x1, y1, x2, y2, x3, y3):
 
 #Runs terminal version of program
 def main():
-    wanted = 0
-
     #Find out if user wants to use points or lengths of sides
     while True:
         getInput = input("Find the triangle with lengths (1) or points (2)? ")
