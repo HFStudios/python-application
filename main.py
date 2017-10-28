@@ -14,6 +14,8 @@ def givenLengths(side1, side2, side3):
     l2 = side2
     l3 = side3
 
+    #Changes it so that hypotenuse becomes sides
+    #Makes it so that the lengths can be put in any order and still get the right results
     if(l1 >= l2 and l1 >= l3):
         side1 = l1
         side2 = l2
@@ -26,9 +28,7 @@ def givenLengths(side1, side2, side3):
         side1 = l3
         side2 = l2
         side3 = l1
-
-
-    x = 1
+        
 
     if (((side2 + side3) > side1) and ((side1 + side2) > side3) and ((side1 + side3) > side2)):
         if ((side1 ** 2) == (side2 ** 2) + (side3 ** 2)):
