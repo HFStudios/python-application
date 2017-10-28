@@ -51,7 +51,8 @@ def givenPoints(x1, y1, x2, y2, x3, y3):
     dist2 = math.sqrt(((x3 - x2) ** 2) + ((y3 - y2) ** 2))
     dist3 = math.sqrt(((x3 - x1) ** 2) + ((y3 - y1) ** 2))
 
-    return(givenLengths(dist1, dist2, dist3))
+    triType = givenLengths(dist1, dist2, dist3)
+    return(dist1, dist2, dist3, triType)
 
 
 #Runs terminal version of program

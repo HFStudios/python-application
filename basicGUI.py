@@ -2,7 +2,6 @@ import sys
 from tkinter import *
 from main import givenLengths, givenPoints
 
-#hyp = 1, x = 2, y = 3
 
 #Function called when button pressed
 def enterValuesLength():
@@ -18,8 +17,12 @@ def enterValuesPoints():
     finalAnswerPoints = givenPoints(getx1.get(), gety1.get(), getx2.get(), gety2.get(), getx3.get(), gety3.get())
     print(finalAnswerPoints)
 
-    #Add triangle type as a new label in GUI
-    mLabel = Label(mGUI, text = finalAnswerPoints).pack()
+    #Add lengths and triangle type as new labels in GUI
+    mLabel = Label(mGUI, text = "Side 1: " + str(finalAnswerPoints[0])).pack()
+    mLabel = Label(mGUI, text = "Side 2: " + str(finalAnswerPoints[1])).pack()
+    mLabel = Label(mGUI, text = "Side 3: " + str(finalAnswerPoints[2])).pack()
+    mLabel = Label(mGUI, text = "Type: " + str(finalAnswerPoints[3])).pack()
+
 
 def lengthInput():
     #Labels/input fields for GUI (side lengths)
