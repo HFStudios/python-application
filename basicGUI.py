@@ -1,6 +1,6 @@
 import sys
 from tkinter import *
-from main import givenLengths, givenPoints
+from Trig import givenLengths, givenPoints
 
 
 #Create new label with output value
