@@ -1,0 +1,37 @@
+import sys
+from tkinter import *
+
+
+def enterValues():
+    print("VALUES: " + str(getHypotenuse.get()) + " " + str(getSideX.get()) + " " + str(getSideY.get()))
+    givenLengths(getHypotenuse.get(), getSideX.get(), getSideY.get())
+
+
+
+
+
+
+mGUI = Tk()
+getHypotenuse = IntVar()
+getSideX = IntVar()
+getSideY = IntVar()
+
+
+mGUI.geometry("600x600")
+mGUI.title("Triangle Calculator")
+
+mLabel = Label(mGUI, text = "Hypotenuse").pack()
+mEntry = Entry(mGUI, textvariable = getHypotenuse).pack()
+
+mLabel = Label(mGUI, text = "SideX").pack()
+mEntry = Entry(mGUI, textvariable = getSideX).pack()
+
+mLabel = Label(mGUI, text = "SideY").pack()
+mEntry = Entry(mGUI, textvariable = getSideY).pack()
+
+
+
+
+mButton = Button(mGUI, text = "Submit Values", command = enterValues, fg = "white", bg = "black").pack()
+
+mGUI.mainloop()
