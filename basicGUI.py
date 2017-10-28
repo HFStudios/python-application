@@ -5,9 +5,11 @@ from main import givenLengths
 
 #Function called when button pressed
 def enterValues():
-    print("VALUES: " + str(getHypotenuse.get()) + " " + str(getSideX.get()) + " " + str(getSideY.get()))
+    #Get triangle type from givenLengths in main.py
     finalAnswer = givenLengths(getHypotenuse.get(), getSideX.get(), getSideY.get())
     print(finalAnswer)
+
+    #Add triangle type as a new label in GUI
     mLabel = Label(mGUI, text = finalAnswer).pack()
 
 
@@ -32,7 +34,7 @@ mEntry = Entry(mGUI, textvariable = getSideY).pack()
 
 
 
-#Button in GUI
+#Submit button in GUI
 mButton = Button(mGUI, text = "Submit Values", command = enterValues, fg = "white", bg = "black").pack()
 
 
