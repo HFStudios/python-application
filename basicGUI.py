@@ -142,7 +142,7 @@ def mainCalc():
     entry.grid(row = 0, column = 0, columnspan = 5)
 '''
 def mainCalc():
-    mButton = Button(page4, text = "Submit Lengths", command = os.system("calc.py"), fg = "white", bg = "black").pack()
+    mButton = Button(page4, text = "Open calc", command = os.system("calc.py"), fg = "white", bg = "black").pack()
 '''
 def mainCalc():
     os.system("calc.py")
