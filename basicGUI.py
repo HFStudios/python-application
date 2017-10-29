@@ -118,7 +118,7 @@ def wordInput():
     mButton = Button(page3, text = "Submit Word", command = enterWord, fg = "white", bg = "black").pack()
 
 
-
+#Still does'nt work
 def mainCalc():
     buttons = [
         '7',  '8',  '9',  '*',  'C',
@@ -138,28 +138,6 @@ def mainCalc():
             r += 1
     entry = tk.Entry(page4, width = 33, bg = "white")
     entry.grid(row = 0, column = 0, columnspan = 5)
-
-    '''
-    buttons = [
-        '7',  '8',  '9',  '*',  'C',
-        '4',  '5',  '6',  '/',  'M->',
-        '1',  '2',  '3',  '-',  '->M',
-        '0',  '.',  '=',  '+',  'neg']
-
-    r = 1
-    c = 0
-    for b in buttons:
-        cmd = lambda x = b: clk(x)
-        tk.Button(page4, text = b, width = 5, relief = "ridge", command = cmd).grid(row = r, column = c)
-        c += 1
-        if c > 4:
-            c = 0
-            r += 1
-    entry = tk.Entry(page4, width = 33, bg = "white")
-    entry.grid(row = 0, column = 0, columnspan = 5)
-    '''
-
-
 
 
 #Setting up GUI (and tabs) and variables for input
