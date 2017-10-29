@@ -7,7 +7,7 @@ def dictionary(w):
     w = w.lower()
     if w in data:
         return data[w]
-    elif(w = "all star")
+    elif(w == "all star"):
         return("Hey, now, you're an All Star")
     else:
         return("Not found in dictionary.")
