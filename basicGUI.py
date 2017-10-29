@@ -1,11 +1,11 @@
 import sys
 import tkinter as tk
+import os
 from tkinter import *
 from tkinter import ttk
 from trig import givenLengths, givenPoints
 from C2F import C_to_F_converter, F_to_C_converter
 from dictionary import dictionary
-from calculator import clk
 
 
 #Create new label with output value
@@ -120,6 +120,7 @@ def wordInput():
 
 
 #Still does'nt work
+'''
 def mainCalc():
     buttons = [
         '7',  '8',  '9',  '*',  'C',
@@ -139,8 +140,9 @@ def mainCalc():
             r += 1
     entry = tk.Entry(page4, width = 33, bg = "white")
     entry.grid(row = 0, column = 0, columnspan = 5)
-
-
+'''
+def mainCalc():
+    os.system("Calc.py")
 #Setting up GUI (and tabs) and variables for input
 mGUI = Tk()
 nb = ttk.Notebook(mGUI)
@@ -186,5 +188,5 @@ mainCalc()
 
 #Run/setup GUI
 mGUI.geometry("600x900")
-mGUI.title("Triangle Calculator")
+mGUI.title("Use full Things")
 mGUI.mainloop()
