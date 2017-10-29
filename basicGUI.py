@@ -14,7 +14,7 @@ def newLabelpg1(strOut):
 def newLabelpg2(strOut):
     mLabel = Label(page2, text = strOut).pack()
 def newLabelpg3(strOut):
-    mLabel = Label(page3, text = strOut).pack()
+    mLabel = Label(page3, text = strOut, wraplength = 500).pack()
 
 #Function called when button pressed if lengths of sides are entered (page1)
 def enterValuesLength():
