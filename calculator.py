@@ -3,39 +3,60 @@ import tkinter as tk
 
 def clk(key):
     global memory
-    if(key == "="):
-        if("/" in entry.get() and "." not in entry.get()):
+    if key == '=':
+        if('/' in entry.get() and '.' not in entry.get()):
             entry.insert(tk.END, ".0")
-        string1 = "-+0123456789."
-
-        if(entry.get()[0] not in string1):
-            entry.insert(tk.END, "Char not in " + string1)
-
+        str1 = "-+0123456789."
+        if(entry.get()[0] not in str1):
+            entry.insert(tk.END, "first char not in " + str1)
         try:
             result = eval(entry.get())
             entry.insert(tk.END, " = " + str(result))
         except:
-            entry.insert(tk.END, " ERROR")
-    elif(key == "C"):
+            entry.insert(tk.END, "--> Error!")
+    elif(key == 'C'):
         entry.delete(0, tk.END)
-    elif(key == "->M"):
+    elif(key == '->M'):
         memory = entry.get()
-        if("=" in memory):
-            x = memory.find("=")
-            memory = memory[x + 2:]
-        root.title("M=" + memory)
-    elif(key == "M->"):
+        if('=' in memory):
+            ix = memory.find('=')
+            memory = memory[ix+2:]
+        root.title('M=' + memory)
+    elif(key == 'M->'):
         entry.insert(tk.END, memory)
-    elif(key == "neg"):
-        if("=" in entry.get()):
+    elif(key == 'neg'):
+        if('=' in entry.get()):
             entry.delete(0, tk.END)
         try:
-            if(entry.get()[0] == "-"):
+            if(entry.get()[0] == '-'):
                 entry.delete(0)
-            else: entry.insert(0, "-")
+            else:
+                entry.insert(0, '-')
         except IndexError:
             pass
     else:
-        if("=" in entry.get()):
+        if('=' in entry.get()):
             entry.delete(0, tk.END)
         entry.insert(tk.END, key)
+
+
+root = tk.Tk()
+root.title("Calculator")
+buttons = [
+    '7',  '8',  '9',  '*',  'C',
+    '4',  '5',  '6',  '/',  'M->',
+    '1',  '2',  '3',  '-',  '->M',
+    '0',  '.',  '=',  '+',  'neg']
+
+r = 1
+c = 0
+for b in buttons:
+    cmd = lambda x = b: clk(x)
+    tk.Button(root, text = b, width = 5, relief = "ridge", command = cmd).grid(row = r, column = c)
+    c += 1
+    if c > 4:
+        c = 0
+        r += 1
+entry = tk.Entry(root, width = 33, bg = "white")
+entry.grid(row = 0, column = 0, columnspan = 5)
+root.mainloop()
