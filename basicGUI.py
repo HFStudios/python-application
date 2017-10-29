@@ -1,6 +1,7 @@
 import sys
 import tkinter as tk
 import os
+import winsound
 from tkinter import *
 from tkinter import ttk
 from trig import givenLengths, givenPoints
