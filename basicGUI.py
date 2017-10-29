@@ -142,7 +142,7 @@ def mainCalc():
     entry.grid(row = 0, column = 0, columnspan = 5)
 '''
 def mainCalc():
-    os.system("Calc.py")
+    os.system("calc.py")
 #Setting up GUI (and tabs) and variables for input
 mGUI = Tk()
 nb = ttk.Notebook(mGUI)
