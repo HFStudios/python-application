@@ -141,8 +141,11 @@ def mainCalc():
     entry = tk.Entry(page4, width = 33, bg = "white")
     entry.grid(row = 0, column = 0, columnspan = 5)
 '''
+mButton = Button(page1, text = "Submit Lengths", command = os.system("calc.py"), fg = "white", bg = "black").pack()
+'''
 def mainCalc():
     os.system("calc.py")
+    '''
 #Setting up GUI (and tabs) and variables for input
 mGUI = Tk()
 nb = ttk.Notebook(mGUI)
