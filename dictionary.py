@@ -13,7 +13,7 @@ def dictionary(w):
         s = Sound()
         s.read("memes.mp3")
         s.play()
-        return("ARE YOU FEELING THE MEMES?")
+        return data[w]
     else:
         return("Not found in dictionary.")
 
