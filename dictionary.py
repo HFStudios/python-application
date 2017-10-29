@@ -9,7 +9,7 @@ def dictionary(w):
         return data[w]
     elif(w == "all star"):
         return("Hey, now, you're an All Star")
-    elif(w == "cryus" or w == "Cyrus")
+    elif(w == "cryus" or w == "Cyrus"):
         s = Sound()
         s.read("memes.mp3")
         s.play()
