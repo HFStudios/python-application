@@ -4,7 +4,7 @@ from tkinter import ttk
 from trig import givenLengths, givenPoints
 from C2F import C_to_F_converter, F_to_C_converter
 from dictionary import dictionary
-#from calculator import clk
+from calculator import mainCalc2
 
 
 #Create new label with output value
@@ -118,7 +118,6 @@ def wordInput():
     mButton = Button(page3, text = "Submit Word", command = enterWord, fg = "white", bg = "black").pack()
 
 
-
 def mainCalc():
     buttons = [
         "7", "8", "9", "x", "C",
@@ -135,9 +134,8 @@ def mainCalc():
         if(c > 4):
             c = 0
             r += 1
-    entry = Entry(page4, width=33, bg="white")
-    entry.grid(row=0, column=0, columnspan=5)
-
+    entry = Entry(page4, width = 33, bg = "white")
+    entry.grid(row = 0, column = 0, columnspan = 5)
 
 
 

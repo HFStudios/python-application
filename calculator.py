@@ -2,6 +2,7 @@ import math
 import tkinter as tk
 
 def clk(key):
+    global memory
     if(key == "="):
         if("/" in entry.get() and "." not in entry.get()):
             entry.insert(tk.END, ".0")
