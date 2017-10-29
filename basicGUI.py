@@ -7,6 +7,7 @@ from trig import givenLengths, givenPoints
 from C2F import C_to_F_converter, F_to_C_converter
 from dictionary import dictionary
 '''from Calc import clk'''
+from calc import startCalc
 
 #Create new label with output value
 def newLabelpg1(strOut):
@@ -142,7 +143,7 @@ def mainCalc():
     entry.grid(row = 0, column = 0, columnspan = 5)
 '''
 def mainCalc():
-    mButton = Button(page4, text = "Open calc", command = os.system("calc.py"), fg = "white", bg = "black").pack()
+    mButton = Button(page4, text = "Open calc", command = startCalc, fg = "white", bg = "black").pack()
 '''
 def mainCalc():
     os.system("calc.py")
