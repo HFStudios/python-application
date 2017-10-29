@@ -1,9 +1,10 @@
 import sys
 from tkinter import *
 from tkinter import ttk
-from Trig import givenLengths, givenPoints
+from trig import givenLengths, givenPoints
 from C2F import C_to_F_converter, F_to_C_converter
 from dictionary import dictionary
+#from calculator import clk
 
 
 #Create new label with output value
@@ -118,6 +119,34 @@ def wordInput():
 
 
 
+def mainCalc():
+    buttons = [
+        "7", "8", "9", "x", "C",
+        "4", "5", "6", "÷", "M->",
+        "1", "2", "3", "-", "->M",
+        "0", ".", "=", "+", "neg"]
+
+    r = 1
+    c = 0
+    for b in buttons:
+        cd = lambda x1 = b: clk(x1)
+        Button(page4, text = b, width = 5, relief = "ridge", command = cd).grid(row = r, column = c)
+        c += 1
+        if(c > 4):
+            c = 0
+            r += 1
+    entry = Entry(page4, width=33, bg="white")
+    entry.grid(row=0, column=0, columnspan=5)
+
+
+
+
+
+
+
+
+
+
 
 #Setting up GUI (and tabs) and variables for input
 mGUI = Tk()
@@ -125,9 +154,11 @@ nb = ttk.Notebook(mGUI)
 page1 = ttk.Frame(nb)
 page2 = ttk.Frame(nb)
 page3 = ttk.Frame(nb)
+page4 = ttk.Frame(nb)
 nb.add(page1, text = "Triangle Calculator")
 nb.add(page2, text = "Degree Converter")
 nb.add(page3, text = "Dictionary")
+nb.add(page4, text = "Calculator")
 nb.pack(expand = 1, fill = "both")
 
 
@@ -158,6 +189,7 @@ pointInput()
 cDegreeInput()
 fDegreeInput()
 wordInput()
+mainCalc()
 
 
 #Run/setup GUI
