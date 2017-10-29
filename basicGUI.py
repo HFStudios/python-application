@@ -7,6 +7,7 @@ from trig import givenLengths, givenPoints
 from C2F import C_to_F_converter, F_to_C_converter
 from dictionary import dictionary
 from calc import startCalc
+from playsound import playsound
 
 #Create new label with output value
 def newLabelpg1(strOut):
@@ -107,6 +108,11 @@ def enterWord():
     wordDef = ((str(dictionary(getWord.get())).strip('[]'))).strip("''")
     if(wordDef == "Not found in dictionary."):
         newLabelpg3(wordDef)
+    elif(wordDef == "YOU FEELING THE MEMES HASSAN!!"):
+        print("CYRUS AUDIO")
+        newLabelpg3(getWord.get() + " = " + wordDef)
+        playsound('memes.mp3')
+        print("AUDIO DONE")
     else:
         newLabelpg3(getWord.get() + " = " + wordDef)
     print(wordDef)
