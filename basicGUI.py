@@ -4,8 +4,7 @@ from tkinter import *
 from tkinter import ttk
 from trig import givenLengths, givenPoints
 from C2F import C_to_F_converter, F_to_C_converter
-from dictionary import dictionary
-from calculator import Calc
+#from dictionary import dictionary
 
 
 #Create new label with output value
