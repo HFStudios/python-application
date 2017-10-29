@@ -142,7 +142,9 @@ def mainCalc():
     entry.grid(row = 0, column = 0, columnspan = 5)
 '''
 def mainCalc():
-    mButton = Button(page4, text = "Open calc", command = os.system("calc.py"), fg = "white", bg = "black").pack()
+    mButton = Button(page4, text = "Open calc", command = cal, fg = "white", bg = "blue").pack()
+def cal():
+    os.system("calc.py")
 '''
 def mainCalc():
     os.system("calc.py")
