@@ -194,5 +194,5 @@ mainCalc()
 
 #Run/setup GUI
 mGUI.geometry("600x900")
-mGUI.title("Use full Things")
+mGUI.title("A bunch of things that seem useful")
 mGUI.mainloop()
