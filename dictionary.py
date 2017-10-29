@@ -9,6 +9,11 @@ def dictionary(w):
         return data[w]
     elif(w == "all star"):
         return("Hey, now, you're an All Star")
+    elif(w == "cryus" || w == "Cyrus")
+        s = Sound()
+        s.read("memes.mp3")
+        s.play()
+        return("ARE YOU FEELING THE MEMES?")
     else:
         return("Not found in dictionary.")
 
