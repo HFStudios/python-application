@@ -6,7 +6,7 @@ from tkinter import ttk
 from trig import givenLengths, givenPoints
 from C2F import C_to_F_converter, F_to_C_converter
 from dictionary import dictionary
-
+'''from Calc import clk'''
 
 #Create new label with output value
 def newLabelpg1(strOut):
