@@ -8,7 +8,6 @@ from C2F import C_to_F_converter, F_to_C_converter
 from dictionary import dictionary
 from calc import startCalc
 from playsound import playsound
-<<<<<<< HEAD
 
 #Create new label with output value on specified page
 def newLabel(strOut, pageNum):
@@ -18,19 +17,11 @@ def newLabel(strOut, pageNum):
         wrapNum = 0
     Label(pageNum, text = strOut, wraplength = wrapNum).pack()
 
-
-=======
-#Create new label with output value
->>>>>>> edd6b51144a71d95c2fae9b70670500e4960706f
-def newLabelpg1(strOut):
-    mLabel = Label(page1, text = strOut).pack()
-def newLabelpg2(strOut):
-    mLabel = Label(page2, text = strOut).pack()
-def newLabelpg3(strOut):
-    mLabel = Label(page3, text = strOut, wraplength = 500).pack()
-
 #Function called when button pressed if lengths of sides are entered (page1)
 def enterValuesLength():
+
+    print("LENGTHS")
+    print(str(getSide1) + str(getSide2) + str(getSide3))
     #Get triangle type from givenLengths in main.py
     finalAnswerLength = givenLengths(getSide1.get(), getSide2.get(), getSide3.get())
     print(finalAnswerLength)
@@ -40,6 +31,7 @@ def enterValuesLength():
 
 #Function called when button pressed if points of triangle are entered (page1)
 def enterValuesPoints():
+
     #Get triangle type from givenLengths in main.py
     finalAnswerPoints = givenPoints(getx1.get(), gety1.get(), getx2.get(), gety2.get(), getx3.get(), gety3.get())
     print(finalAnswerPoints)
@@ -54,6 +46,16 @@ def enterValuesPoints():
 #Creates input field/labels/buttons for length input (page1)
 def lengthInput():
     #Labels/input fields for GUI (side lengths)
+
+    #Tried to simplify it, still doesn't work properly (getSide1/2/3 don't get assigned)
+    x = 0
+    for x in range (1, 4):
+        newLabel("Side " + str(x), page1)
+        sideNeeded = "getSide" + str(x)
+        Entry(page1, textvariable = sideNeeded).pack()
+    mButton = Button(page1, text = "Submit Lengths", command = enterValuesLength, fg = "white", bg = "black").pack()
+
+'''
     newLabel("Side 1", page1)
     mEntry = Entry(page1, textvariable = getSide1).pack()
 
@@ -62,9 +64,8 @@ def lengthInput():
 
     newLabel("Side 3", page1)
     mEntry = Entry(page1, textvariable = getSide3).pack()
-
+'''
     #Submit button in GUI (side lengths)
-    mButton = Button(page1, text = "Submit Lengths", command = enterValuesLength, fg = "white", bg = "black").pack()
 
 #Creates input field/labels/buttons for point input (page1)
 def pointInput():
@@ -161,8 +162,6 @@ nb.add(page3, text = "Dictionary")
 nb.add(page4, text = "Calculator")
 nb.pack(expand = 1, fill = "both")
 
-#Backgroud color
-mGUI.configure(bg="black")
 #Values if given lengths
 getSide1 = IntVar()
 getSide2 = IntVar()
