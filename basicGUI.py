@@ -9,7 +9,6 @@ from C2F import C_to_F_converter, F_to_C_converter
 from dictionary import dictionary
 from calc import startCalc
 from playsound import playsound
-
 #Create new label with output value
 def newLabelpg1(strOut):
     mLabel = Label(page1, text = strOut).pack()
@@ -149,7 +148,8 @@ nb.add(page3, text = "Dictionary")
 nb.add(page4, text = "Calculator")
 nb.pack(expand = 1, fill = "both")
 
-
+#Backgroud color
+mGUI.configure(bg="black")
 #Values if given lengths
 getSide1 = IntVar()
 getSide2 = IntVar()
