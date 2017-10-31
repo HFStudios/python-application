@@ -1,10 +1,10 @@
 # python-application
 
-These are the current features:
-1. Triangle calculator
+Current features:
+1. Triangle calculator - calculates type of triagle based on lengths of sides/points of triangle
 2. Calculator
 3. Dictionary
 4. Temperature converter
 
 
-We will be adding more later.
+We'll add more later.
