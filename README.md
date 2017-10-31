@@ -8,3 +8,6 @@ Current features:
 
 
 We'll add more later.
+
+# Running It
+Download the repository, and make sure you have Python 3 as well as tkinter and playsound installed on your system. Run the ```basicGUI.py``` file to run the GUI, or run individual files to get single functions in a text based format. 
