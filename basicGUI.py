@@ -1,13 +1,9 @@
-import os
-import sys
-import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 from trig import givenLengths, givenPoints
 from C2F import C_to_F_converter, F_to_C_converter
 from dictionary import dictionary
 from calc import startCalc
-from playsound import playsound
 
 #Create new label with output value on specified page
 def newLabel(strOut, pageNum):
@@ -19,8 +15,7 @@ def newLabel(strOut, pageNum):
 
 #Function called when button pressed if lengths of sides are entered (page1)
 def enterValuesLength():
-
-    print("LENGTHS")
+    print("LENGTHS:")
     print(str(getSide1) + str(getSide2) + str(getSide3))
     #Get triangle type from givenLengths in main.py
     finalAnswerLength = givenLengths(getSide1.get(), getSide2.get(), getSide3.get())
@@ -31,7 +26,6 @@ def enterValuesLength():
 
 #Function called when button pressed if points of triangle are entered (page1)
 def enterValuesPoints():
-
     #Get triangle type from givenLengths in main.py
     finalAnswerPoints = givenPoints(getx1.get(), gety1.get(), getx2.get(), gety2.get(), getx3.get(), gety3.get())
     print(finalAnswerPoints)
@@ -46,87 +40,68 @@ def enterValuesPoints():
 #Creates input field/labels/buttons for length input (page1)
 def lengthInput():
     #Labels/input fields for GUI (side lengths)
-
-    #Tried to simplify it, still doesn't work properly (getSide1/2/3 don't get assigned)
-    x = 0
     for x in range (1, 4):
         newLabel("Side " + str(x), page1)
-        sideNeeded = "getSide" + str(x)
+        if(x == 1):
+            sideNeeded = getSide1
+        elif(x == 2):
+            sideNeeded = getSide2
+        else:
+            sideNeeded = getSide3
         Entry(page1, textvariable = sideNeeded).pack()
+
+    #Submit button in GUI (side lengths)
     mButton = Button(page1, text = "Submit Lengths", command = enterValuesLength, fg = "white", bg = "black").pack()
 
-'''
-    newLabel("Side 1", page1)
-    mEntry = Entry(page1, textvariable = getSide1).pack()
-
-    newLabel("Side 2", page1)
-    mEntry = Entry(page1, textvariable = getSide2).pack()
-
-    newLabel("Side 3", page1)
-    mEntry = Entry(page1, textvariable = getSide3).pack()
-'''
-    #Submit button in GUI (side lengths)
 
 #Creates input field/labels/buttons for point input (page1)
 def pointInput():
     #Labels/input fields for GUI (points given)
-    newLabel("x1", page1)
-    mEntry = Entry(page1, textvariable = getx1).pack()
+    for x in range (1, 4):
+        if(x == 1):
+            nums = "x1", "y1"
+            textVar = getx1, gety1
+        elif(x == 2):
+            nums = "x2", "y2"
+            textVar = getx2, gety2
+        elif(x == 3):
+            nums = "x3", "y3"
+            textVar = getx3, gety3
 
-    newLabel("y1", page1)
-    mEntry = Entry(page1, textvariable = gety1).pack()
+        newLabel(nums[0], page1)
+        Entry(page1, textvariable = textVar[0]).pack()
+        newLabel(nums[1], page1)
+        Entry(page1, textvariable = textVar[1]).pack()
 
-    newLabel("x2", page1)
-    mEntry = Entry(page1, textvariable = getx2).pack()
-
-    newLabel("y2", page1)
-    mEntry = Entry(page1, textvariable = gety2).pack()
-
-    newLabel("x3", page1)
-    mEntry = Entry(page1, textvariable = getx3).pack()
-
-    newLabel("y3", page1)
-    mEntry = Entry(page1, textvariable = gety3).pack()
-
-
-    #Submit button in GUI (points given)
     mButton = Button(page1, text = "Submit Points", command = enterValuesPoints, fg = "white", bg = "black").pack()
 
 
-#Function called when button pressed if °C entered (page2)
-def enterC():
-    finalF = C_to_F_converter(getC.get())
-    print(finalF)
-    newLabel(str(getC.get()) + "°C = " + str(finalF) + "°F", page2)
+#Function called when button pressed if degrees entered (page2)
+def enterDegree(dType):
+    #dType 1 = C to F
+    #dType 2 = F to C
+    def whatToDo(convType, strType, strInv):
+        finalDeg = convType(getC.get())
+        print(finalDeg)
+        newLabel(str(getC.get()) + "°" + strType + " = " + str(finalDeg) + "°" + strInv, page2) #str(finalF) + "°F", page2)
 
-#Function called when button pressed if °F entered (page2)
-def enterF():
-    finalC = F_to_C_converter(getF.get())
-    print(finalC)
-    newLabel(str(getF.get()) + "°F = " + str(finalC) + "°C", page2)
+    if(dType == 1):
+        whatToDo(C_to_F_converter, "C", "F")
+    else:
+        whatToDo(F_to_C_converter, "F", "C")
 
-#Creates input field/labels/buttons for °C input (page2)
-def cDegreeInput():
-    newLabel("Convert °C to °F", page2)
+#Creates input field/labels/buttons for degree input (page2)
+def degreeInput():
+    newLabel("Degrees to convert", page2)
     mEntry = Entry(page2, textvariable = getC).pack()
-    mButton = Button(page2, text = "Submit °C Value", command = enterC, fg = "white", bg = "black").pack()
-
-#Creates input field/labels/buttons for °F input (page2)
-def fDegreeInput():
-    newLabel("Convert °F to °C", page2)
-    mEntry = Entry(page2, textvariable = getF).pack()
-    mButton = Button(page2, text = "Submit °F Value", command = enterF, fg = "white", bg = "black").pack()
+    Button(page2, text = "Submit °C Value", command = lambda : enterDegree(1), fg = "white", bg = "black").pack()
+    Button(page2, text = "Submit °F Value", command = lambda : enterDegree(2), fg = "white", bg = "black").pack()
 
 #Function called when button pressed to enter word (page3)
 def enterWord():
     wordDef = ((str(dictionary(getWord.get())).strip('[]'))).strip("''")
     if(wordDef == "Not found in dictionary."):
         newLabel(wordDef, page3)
-    elif(wordDef == "YOU FEELING THE MEMES HASSAN!!"):
-        print("CYRUS AUDIO")
-        newLabel(getWord.get() + " = " + wordDef, page3)
-        playsound('memes.mp3')
-        print("AUDIO DONE")
     else:
         newLabel(getWord.get() + " = " + wordDef, page3)
     print(wordDef)
@@ -141,13 +116,8 @@ def wordInput():
 
 #Works good enough
 def mainCalc():
-    mButton = Button(page4, text = "Open calculator", command = startCalc, fg = "white", bg = "green").pack()
-def cal():
-    os.system("calc.py")
+    Button(page4, text = "Open calculator", command = startCalc, fg = "white", bg = "black").pack()
 
-#``````````````````````````````````````````````````````````````````````````````````````````````````````````````````
-#``             '''DO not do anything past this line if you are not samrt'''                                     ``
-#``````````````````````````````````````````````````````````````````````````````````````````````````````````````````
 
 #Setting up GUI (and tabs) and variables for input
 mGUI = Tk()
@@ -185,8 +155,7 @@ getWord = StringVar()
 #Run functions to display in window
 lengthInput()
 pointInput()
-cDegreeInput()
-fDegreeInput()
+degreeInput()
 wordInput()
 mainCalc()
 
