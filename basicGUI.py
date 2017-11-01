@@ -30,7 +30,7 @@ def enterValuesPoints():
 def enterValuesLength():
     print("LENGTHS:")
     print(str(getSide1) + str(getSide2) + str(getSide3))
-    #Get triangle type from givenLengths in main.py
+    #Get triangle type from givenLengths using main.py
     finalAnswerLength = givenLengths(getSide1.get(), getSide2.get(), getSide3.get())
     print(finalAnswerLength)
 
@@ -51,7 +51,7 @@ def lengthInput():
         Entry(page1, textvariable = sideNeeded).pack()
 
     #Submit button in GUI (side lengths)
-    mButton = Button(page1, text = "Submit Lengths", command = enterValuesLength, fg = "white", bg = "black").pack()
+    Button(page1, text = "Submit Lengths", command = enterValuesLength, fg = "white", bg = "black").pack()
 
 
 #Creates input field/labels/buttons for point input (page1)
@@ -73,7 +73,7 @@ def pointInput():
         newLabel(nums[1], page1)
         Entry(page1, textvariable = textVar[1]).pack()
 
-    mButton = Button(page1, text = "Submit Points", command = enterValuesPoints, fg = "white", bg = "black").pack()
+    Button(page1, text = "Submit Points", command = enterValuesPoints, fg = "white", bg = "black").pack()
 
 
 #Function called when button pressed if degrees entered (page2)
@@ -110,13 +110,13 @@ def enterWord():
 #Creates input field/labels/buttons for word input (page3)
 def wordInput():
     newLabel("Word: ", page3)
-    mEntry = Entry(page3, textvariable = getWord).pack()
-    mButton = Button(page3, text = "Submit Word", command = enterWord, fg = "white", bg = "black").pack()
+    Entry(page3, textvariable = getWord).pack()
+    Button(page3, text = "Submit Word", command = enterWord, fg = "white", bg = "black").pack()
 
 
 #Works good enough
 def mainCalc():
-    Button(page4, text = "Open calculator", command = startCalc, fg = "white", bg = "black").pack()
+    Button(page4, text = "Open Calculator", command = startCalc, fg = "white", bg = "black").pack()
 
 #Setting up GUI (and tabs) and variables for input
 mGUI = Tk()
