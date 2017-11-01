@@ -13,17 +13,6 @@ def newLabel(strOut, pageNum):
         wrapNum = 0
     Label(pageNum, text = strOut, wraplength = wrapNum).pack()
 
-#Function called when button pressed if lengths of sides are entered (page1)
-def enterValuesLength():
-    print("LENGTHS:")
-    print(str(getSide1) + str(getSide2) + str(getSide3))
-    #Get triangle type from givenLengths in main.py
-    finalAnswerLength = givenLengths(getSide1.get(), getSide2.get(), getSide3.get())
-    print(finalAnswerLength)
-
-    #Add triangle type as a new label in GUI
-    newLabel(finalAnswerLength, page1)
-
 #Function called when button pressed if points of triangle are entered (page1)
 def enterValuesPoints():
     #Get triangle type from givenLengths in main.py
@@ -36,6 +25,17 @@ def enterValuesPoints():
             "\nSide 3: " + str(finalAnswerPoints[2]) +
             "\nType: " + str(finalAnswerPoints[3]),
             page1)
+
+#Function called when button pressed if lengths of sides are entered (page1)
+def enterValuesLength():
+    print("LENGTHS:")
+    print(str(getSide1) + str(getSide2) + str(getSide3))
+    #Get triangle type from givenLengths in main.py
+    finalAnswerLength = givenLengths(getSide1.get(), getSide2.get(), getSide3.get())
+    print(finalAnswerLength)
+
+    #Add triangle type as a new label in GUI
+    newLabel(finalAnswerLength, page1)
 
 #Creates input field/labels/buttons for length input (page1)
 def lengthInput():
@@ -117,7 +117,6 @@ def wordInput():
 #Works good enough
 def mainCalc():
     Button(page4, text = "Open calculator", command = startCalc, fg = "white", bg = "black").pack()
-
 
 #Setting up GUI (and tabs) and variables for input
 mGUI = Tk()
