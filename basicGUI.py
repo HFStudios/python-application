@@ -3,6 +3,7 @@ from tkinter import ttk
 from trig import givenLengths, givenPoints
 from C2F import C_to_F_converter, F_to_C_converter
 from dictionary import dictionary
+from PIL import ImageTk, Image
 from calc import startCalc
 
 #Create new label with output value on specified page
@@ -52,7 +53,6 @@ def lengthInput():
 
     #Submit button in GUI (side lengths)
     Button(page1, text = "Submit Lengths", command = enterValuesLength, fg = "white", bg = "black").pack()
-
 
 #Creates input field/labels/buttons for point input (page1)
 def pointInput():
@@ -160,5 +160,6 @@ mainCalc()
 
 #Run/setup GUI
 mGUI.geometry("600x900")
+mGUI.configure(background="green")
 mGUI.title("A bunch of things that seem useful")
 mGUI.mainloop()
