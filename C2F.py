@@ -9,6 +9,10 @@ def F_to_C_converter(F):
     C = (F - 32) * (5 / 9)
     return C
 
+def K_to_C_converter(K):
+    K = C + 273.15
+    return K
+
 #Runs terminal version of program
 def main():
     while True:
@@ -19,6 +23,9 @@ def main():
         elif(getInput == "2"):
             wanted = 2
             break
+        elif(getInput == "3"):
+            wanted = 3
+            break
         else:
             print("Choose a real selection: ")
     if(wanted == 1):
@@ -27,7 +34,9 @@ def main():
     elif(wanted == 2):
         F = float(input("What is the number of degrees fahrenheit to convert to celsius? "))
         print(str(F) + "°F = " + str(F_to_C_converter(F)) + "°C")
-
+    elif(wanted == 3):
+        K = float(input("What is the number of degrees kelvin to convert to celsius? "))
+        print(str(K) + "°K = " + str(K_to_C_converter(K)) + "°C")
 
 #If file is run as standalone, run main() function
 if __name__ == "__main__":

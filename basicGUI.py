@@ -80,6 +80,7 @@ def pointInput():
 def enterDegree(dType):
     #dType 1 = C to F
     #dType 2 = F to C
+    #dType 3 = K to C
     def whatToDo(convType, strType, strInv):
         finalDeg = convType(getC.get())
         print(finalDeg)
@@ -87,8 +88,11 @@ def enterDegree(dType):
 
     if(dType == 1):
         whatToDo(C_to_F_converter, "C", "F")
-    else:
+    elif(dType == 2):
         whatToDo(F_to_C_converter, "F", "C")
+    else:
+        whatToDo(K_to_C_converter, "K", "C")
+        print("did it")
 
 #Creates input field/labels/buttons for degree input (page2)
 def degreeInput():
@@ -96,6 +100,8 @@ def degreeInput():
     mEntry = Entry(page2, textvariable = getC).pack()
     Button(page2, text = "Submit °C Value", command = lambda : enterDegree(1), fg = "white", bg = "black").pack()
     Button(page2, text = "Submit °F Value", command = lambda : enterDegree(2), fg = "white", bg = "black").pack()
+    Button(page2, text = "Submit °K Value", command = lambda : enterDegree(3), fg = "white", bg = "black").pack()
+
 
 #Function called when button pressed to enter word (page3)
 def enterWord():
