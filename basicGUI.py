@@ -129,6 +129,7 @@ def mainCalc():
 
 #Setting up GUI (and tabs) and variables for input
 mGUI = Tk()
+mGUI.iconbitmap('icon.ico')
 nb = ttk.Notebook(mGUI)
 page1 = ttk.Frame(nb)
 page2 = ttk.Frame(nb)
