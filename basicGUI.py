@@ -1,3 +1,4 @@
+import tkinter as tk
 from tkinter import *
 from tkinter import ttk
 from trig import givenLengths, givenPoints
@@ -97,6 +98,7 @@ def enterDegree(dType):
         whatToDo(c_to_k_converter, "C", "K")
 
 #Creates input field/labels/buttons for degree input (page2)
+'''v = tk.IntVar()'''
 def degreeInput():
     newLabel("Degrees to convert", page2)
     mEntry = Entry(page2, textvariable = getC).pack()
@@ -104,6 +106,7 @@ def degreeInput():
     Button(page2, text = "Submit °F Value To °C", command = lambda : enterDegree(2), fg = "white", bg = "black").pack()
     Button(page2, text = "Submit °K Value To °C", command = lambda : enterDegree(3), fg = "white", bg = "black").pack()
     Button(page2, text = "Submit °C Value To °K", command = lambda : enterDegree(4), fg = "white", bg = "black").pack()
+    '''tk.Radiobutton(mGUI, text="Python", padx = 20, variable=v, value=1).pack(anchor=tk.W)'''
 
 
 #Function called when button pressed to enter word (page3)
@@ -128,7 +131,7 @@ def mainCalc():
     Button(page4, text = "Open Calculator", command = startCalc, fg = "white", bg = "black").pack()
 
 #Setting up GUI (and tabs) and variables for input
-mGUI = Tk()
+mGUI = tk.Tk()
 mGUI.iconbitmap('icon.ico')
 nb = ttk.Notebook(mGUI)
 page1 = ttk.Frame(nb)
