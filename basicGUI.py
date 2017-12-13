@@ -1,7 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from trig import givenLengths, givenPoints
-from C2F import C_to_F_converter, F_to_C_converter, k_to_c_converter
+from C2F import C_to_F_converter, F_to_C_converter, k_to_c_converter, c_to_k_converter
 from dictionary import dictionary
 from PIL import ImageTk, Image
 from calc import startCalc
@@ -81,6 +81,7 @@ def enterDegree(dType):
     #dType 1 = C to F
     #dType 2 = F to C
     #dType 3 = K to C
+    #dType 4 = C to K
     def whatToDo(convType, strType, strInv):
         finalDeg = convType(getC.get())
         print(finalDeg)
@@ -90,9 +91,10 @@ def enterDegree(dType):
         whatToDo(C_to_F_converter, "C", "F")
     elif(dType == 2):
         whatToDo(F_to_C_converter, "F", "C")
-    else:
+    elif(dType == 3):
         whatToDo(k_to_c_converter, "K", "C")
-        print("did it")
+    else:
+        whatToDo(c_to_k_converter, "C", "K")
 
 #Creates input field/labels/buttons for degree input (page2)
 def degreeInput():
@@ -101,6 +103,7 @@ def degreeInput():
     Button(page2, text = "Submit °C Value To °F", command = lambda : enterDegree(1), fg = "white", bg = "black").pack()
     Button(page2, text = "Submit °F Value To °C", command = lambda : enterDegree(2), fg = "white", bg = "black").pack()
     Button(page2, text = "Submit °K Value To °C", command = lambda : enterDegree(3), fg = "white", bg = "black").pack()
+    Button(page2, text = "Submit °C Value To °K", command = lambda : enterDegree(4), fg = "white", bg = "black").pack()
 
 
 #Function called when button pressed to enter word (page3)
