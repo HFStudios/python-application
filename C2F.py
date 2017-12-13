@@ -1,4 +1,4 @@
-
+C = 0
 #Converts  celsius to fahrenheit
 def C_to_F_converter(C):
     F = (C * (9 / 5)) + 32
@@ -9,7 +9,7 @@ def F_to_C_converter(F):
     C = (F - 32) * (5 / 9)
     return C
 #Converts Kelvin to celsius
-def k_to_c_converter(k):
+def k_to_c_converter(K):
     K = C + 273.15
     return K
 
@@ -36,7 +36,7 @@ def main():
         print(str(F) + "°F = " + str(F_to_C_converter(F)) + "°C")
     elif(wanted == 3):
         K = float(input("What is the number of degrees kelvin to convert to celsius? "))
-        print(str(K) + "°K = " + str(k_to_c_converter(k)) + "°C")
+        print(str(K) + "°K = " + str(k_to_c_converter(K)) + "°C")
 
 #If file is run as standalone, run main() function
 if __name__ == "__main__":

@@ -1,9 +1,9 @@
 from tkinter import *
 from tkinter import ttk
 from trig import givenLengths, givenPoints
-from C2F import C_to_F_converter, F_to_C_converter
+from C2F import C_to_F_converter, F_to_C_converter, k_to_c_converter
 from dictionary import dictionary
-#from PIL import ImageTk, Image
+from PIL import ImageTk, Image
 from calc import startCalc
 
 #Create new label with output value on specified page
@@ -98,9 +98,9 @@ def enterDegree(dType):
 def degreeInput():
     newLabel("Degrees to convert", page2)
     mEntry = Entry(page2, textvariable = getC).pack()
-    Button(page2, text = "Submit °C Value", command = lambda : enterDegree(1), fg = "white", bg = "black").pack()
-    Button(page2, text = "Submit °F Value", command = lambda : enterDegree(2), fg = "white", bg = "black").pack()
-    Button(page2, text = "Submit °K Value", command = lambda : enterDegree(3), fg = "white", bg = "black").pack()
+    Button(page2, text = "Submit °C Value To °F", command = lambda : enterDegree(1), fg = "white", bg = "black").pack()
+    Button(page2, text = "Submit °F Value To °C", command = lambda : enterDegree(2), fg = "white", bg = "black").pack()
+    Button(page2, text = "Submit °K Value To °C", command = lambda : enterDegree(3), fg = "white", bg = "black").pack()
 
 
 #Function called when button pressed to enter word (page3)
