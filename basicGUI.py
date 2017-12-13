@@ -3,7 +3,7 @@ from tkinter import ttk
 from trig import givenLengths, givenPoints
 from C2F import C_to_F_converter, F_to_C_converter
 from dictionary import dictionary
-from PIL import ImageTk, Image
+#from PIL import ImageTk, Image
 from calc import startCalc
 
 #Create new label with output value on specified page
@@ -91,7 +91,7 @@ def enterDegree(dType):
     elif(dType == 2):
         whatToDo(F_to_C_converter, "F", "C")
     else:
-        whatToDo(K_to_C_converter, "K", "C")
+        whatToDo(k_to_c_converter, "K", "C")
         print("did it")
 
 #Creates input field/labels/buttons for degree input (page2)

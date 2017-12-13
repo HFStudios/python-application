@@ -8,15 +8,15 @@ def C_to_F_converter(C):
 def F_to_C_converter(F):
     C = (F - 32) * (5 / 9)
     return C
-
-def K_to_C_converter(K):
+#Converts Kelvin to celsius
+def k_to_c_converter(k):
     K = C + 273.15
     return K
 
 #Runs terminal version of program
 def main():
     while True:
-        getInput = input("Convert celsius to fahrenheit (1) or fahrenheit to celsius (2)? ")
+        getInput = input("Convert celsius to fahrenheit (1) or fahrenheit to celsius (2) or kelvin to celsius? ")
         if(getInput == "1"):
             wanted = 1
             break
@@ -36,7 +36,7 @@ def main():
         print(str(F) + "°F = " + str(F_to_C_converter(F)) + "°C")
     elif(wanted == 3):
         K = float(input("What is the number of degrees kelvin to convert to celsius? "))
-        print(str(K) + "°K = " + str(K_to_C_converter(K)) + "°C")
+        print(str(K) + "°K = " + str(k_to_c_converter(k)) + "°C")
 
 #If file is run as standalone, run main() function
 if __name__ == "__main__":
