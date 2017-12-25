@@ -4,8 +4,12 @@ from tkinter import *
 from tkinter import ttk
 from trig import givenLengths, givenPoints
 from C2F import C_to_F_converter, F_to_C_converter, k_to_c_converter, c_to_k_converter
+<<<<<<< HEAD
 from dictionary import dictionary
 #from PIL import ImageTk, Image
+=======
+from PIL import ImageTk, Image
+>>>>>>> bb974604b1734194a666f1e020de959757c5a281
 from calc import startCalc
 
 #Create new label with output value on specified page
@@ -87,7 +91,7 @@ def enterDegree(dType):
     def whatToDo(convType, strType, strInv):
         finalDeg = convType(getC.get())
         print(finalDeg)
-        newLabel(str(getC.get()) + "o" + strType + " = " + str(finalDeg) + "o" + strInv, page2) #str(finalF) + "°F", page2)
+        newLabel(str(getC.get()) + "°" + strType + " = " + str(finalDeg) + "°" + strInv, page2) #str(finalF) + "°F", page2)
 
     if(dType == 1):
         whatToDo(C_to_F_converter, "C", "F")
