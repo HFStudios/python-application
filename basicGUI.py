@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
@@ -6,7 +6,6 @@ from trig import givenLengths, givenPoints
 from C2F import C_to_F_converter, F_to_C_converter, k_to_c_converter, c_to_k_converter
 from dictionary import dictionary
 #from PIL import ImageTk, Image
-import Image
 from calc import startCalc
 
 #Create new label with output value on specified page
