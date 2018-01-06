@@ -111,7 +111,7 @@ def degreeInput():
 
 
 #Function called when button pressed to enter word (page3)
-def enterWord():
+def enterWord(event = None):
     wordDef = ((str(dictionary(getWord.get())).strip('[]'))).strip("''")
     if(wordDef == "Not found in dictionary."):
         newLabel(wordDef, page3)
@@ -124,7 +124,9 @@ def enterWord():
 def wordInput():
     newLabel("Word: ", page3)
     Entry(page3, textvariable = getWord).pack()
-    Button(page3, text = "Submit Word", command = enterWord, fg = "white", bg = "black").pack()
+    WI = Button(page3, text = "Submit Word", command = enterWord, fg = "white", bg = "black")
+    WI.pack()
+
 
 
 #Works good enough
@@ -172,7 +174,7 @@ degreeInput()
 wordInput()
 mainCalc()
 
-mGUI.bind('<Enter>', enterWord)
+mGUI.bind('<Return>', enterWord)
 
 #Run/setup GUI
 mGUI.geometry("600x900")
