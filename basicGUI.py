@@ -4,12 +4,8 @@ from tkinter import *
 from tkinter import ttk
 from trig import givenLengths, givenPoints
 from C2F import C_to_F_converter, F_to_C_converter, k_to_c_converter, c_to_k_converter
-<<<<<<< HEAD
 from dictionary import dictionary
-#from PIL import ImageTk, Image
-=======
 from PIL import ImageTk, Image
->>>>>>> bb974604b1734194a666f1e020de959757c5a281
 from calc import startCalc
 
 #Create new label with output value on specified page
@@ -175,6 +171,8 @@ pointInput()
 degreeInput()
 wordInput()
 mainCalc()
+
+mGUI.bind('<Enter>', enterWord)
 
 #Run/setup GUI
 mGUI.geometry("600x900")
