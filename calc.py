@@ -61,4 +61,5 @@ def startCalc():
             r += 1
     entry = tk.Entry(root, width = 33, bg = "white")
     entry.grid(row = 0, column = 0, columnspan = 5)
+    root.iconbitmap('icon.ico')
     root.mainloop()
