@@ -96,6 +96,7 @@ def onlyEng():
                 badW = True
         if(not badW):
             new.write(word)
+
 def wordLength():
     read = open("final-v2.txt", "r")
 
