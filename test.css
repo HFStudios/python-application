@@ -1,0 +1,31 @@
+
+li.voice-state:not([data-reactid*="452465370658373632"]) { display:none; }
+.avatar {
+content:url(https://cdn.discordapp.com/attachments/750025871955460237/816098506284204052/image0kk.png);
+  height:auto !important;
+  width:auto !important;
+  border-radius:0% !important;
+  filter: brightness(50%);
+/*Change brightness to 100%, if you don’t want the image to dim*/
+}
+
+.speaking {
+  border-color:rgba(0,0,0,0) !important;
+  position:relative;
+  animation-name: speak-now;
+  animation-duration: 1s;
+  animation-fill-mode:forwards;
+  filter: brightness(100%);
+content:url(https://cdn.discordapp.com/attachments/750025871955460237/816106149237489665/Crocs_talking.png);
+}
+
+@keyframes speak-now {
+  0% { bottom:0px;  }
+  15% { bottom:10px;  }
+  30% { bottom:0px;  }
+}
+
+li.voice-state{ position: static; }
+div.user{ position: absolute; left:40%; bottom:5%; }
+
+body { background-color: rgba(0, 0, 0, 0); margin: 0px auto; overflow: hidden; }
